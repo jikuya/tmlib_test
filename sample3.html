@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+ 
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, user-scalable=no" />
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+ 
+        <title>3-1 画像を表示しよう | tmlib.js 入門</title>
+        <meta name="description" content="tmlib.js のテンプレートです." />
+
+        <style>body {
+    background-color: rgb(240, 240, 250);
+}
+
+h1 {
+    color: #444;
+    font-size: 23px;
+    font-family: 'Lucida Grande','Hiragino Kaku Gothic ProN', Meiryo, sans-serif;
+}</style>
+
+        <script src="http://cdn.rawgit.com/phi-jp/tmlib.js/0.5.0/build/tmlib.js"></script>
+		<script>/*
+ * # 3-1 画像を表示しよう | tmlib.js 入門
+ * 
+ * tm.game.setup の引数に assets を渡すことで
+ * 読み込む画像を指定することができます.
+ * 
+ * Sprite クラスに読み込んだ画像名を指定することで
+ * 画面上にその画像を表示することができます.
+ */
+
+// tomapiko 画像
+var IMAGE_URL = "https://www.evernote.com/shard/s226/sh/e4df3872-4b93-4870-97ca-ca488e67204b/1398ccb804f728e653610ccadeee0dda/deep/0/tomapiko.png";
+
+// 初期化
+tm.game.setup({
+    title: "tmlib.js tutorial",
+    startLabel: "game",
+    assets: {
+        'tomapiko': IMAGE_URL,
+    },
+});
+
+// ゲームシーン
+tm.define("GameScene", {
+    // 親クラスを指定
+    superClass: "Scene",
+    
+    // 初期化
+    init: function() {
+        // 親クラスの初期化
+        this.superInit();
+        
+        // ここから下にコードを書いていく
+        
+        // TODO: 1. sprite 変数に, 'tomapiko' 画像を指定した Sprite クラスを生成して格納しよう
+        var sprite = Sprite('tomapiko').addChildTo(this);
+
+        // sprite の x 座標に 320 を代入
+        sprite.x = 320;
+        // sprite の y 座標に 480 を代入
+        sprite.y = 480;
+    },
+});
+</script>
+    </head>
+    <body>
+        <canvas id="world"></canvas>
+    </body>
+</html>
